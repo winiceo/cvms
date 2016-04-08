@@ -1,0 +1,5 @@
+# pack-refs with: peeled fully-peeled 
+2e1ff3fccbfc4114ab420e7c967e3a8741f94619 refs/remotes/origin/master
+e25ef2899ee145aaaa990b072546788a076fa09b refs/remotes/origin/revert-51-patch1
+a27cde1031c7e9f9944540dcd6e87e61705e454d refs/tags/2.2.0
+^9d6dc09bd21813f4f236e753c2ae82c9f3d77cdf

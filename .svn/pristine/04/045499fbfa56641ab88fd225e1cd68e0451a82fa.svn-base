@@ -1,0 +1,115 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+services:
+    admin.volunteer:
+        class: AppBundle\Admin\VolunteerAdmin
+        arguments: [~, Application\Sonata\UserBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Volunteer, label_translator_strategy: sonata.admin.label.strategy.underscore} 
+        calls:
+            - [ setSecurityContext, [ "@security.context" ]]
+            - [ setUserManager, [ "@fos_user.user_manager" ]]
+            
+    admin.organization:
+        class: AppBundle\Admin\OrganizationAdmin
+        arguments: [~, AppBundle\Entity\Organization, AppBundle:OrganizationAdmin]
+        calls:
+            - [ setTemplate, [list, AppBundle:OrganizationAdmin:list.html.twig]]        
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Organization, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.education_status:
+        class: AppBundle\Admin\EducationStatusAdmin
+        arguments: [~, AppBundle\Entity\EducationStatus, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Education Status, label_translator_strategy: sonata.admin.label.strategy.underscore}
+             
+    admin.political_status:
+        class: AppBundle\Admin\PoliticalStatusAdmin
+        arguments: [~, AppBundle\Entity\PoliticalStatus, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Political Status, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.nation_status:
+        class: AppBundle\Admin\NationStatusAdmin
+        arguments: [~, AppBundle\Entity\NationStatus, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Nation Status, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.counit:
+        class: AppBundle\Admin\CounitAdmin
+        arguments: [~, AppBundle\Entity\Counit, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Counit, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.counit_type:
+        class: AppBundle\Admin\CounitTypeAdmin
+        arguments: [~, AppBundle\Entity\CounitType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Counit Type, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.wechat_subscriber:
+        class: AppBundle\Admin\WechatSubscriberAdmin
+        arguments: [~, AppBundle\Entity\WechatSubscriber, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Wechat Subscriber, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    cvms.organization.filter.extension:
+        class: AppBundle\Admin\Extension\OrganizationFilterAdminExtension
+        arguments: ['@Security.token_storage', '@doctrine.orm.entity_manager']
+        
+    admin.survey:
+        class: AppBundle\Admin\SurveyAdmin
+        arguments: [~, AppBundle\Entity\Survey, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Survey, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.answer:
+        class: AppBundle\Admin\AnswerAdmin
+        arguments: [~, AppBundle\Entity\Answer, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Answer, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.question:
+        class: AppBundle\Admin\QuestionAdmin
+        arguments: [~, AppBundle\Entity\Question, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Question, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.choice:
+        class: AppBundle\Admin\ChoiceAdmin
+        arguments: [~, AppBundle\Entity\Choice, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Choice, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.activity:
+        class: AppBundle\Admin\ActivityAdmin
+        arguments: [~, AppBundle\Entity\Activity, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Activity, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.activityApply:
+        class: AppBundle\Admin\ActivityApplyAdmin
+        arguments: [~, AppBundle\Entity\ActivityApply, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: ActivityApply, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.volunteer_point_params:
+        class: AppBundle\Admin\VolunteerPointParamsAdmin
+        arguments: [~, AppBundle\Entity\VolunteerPointParams, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Volunteer Point Param, label_translator_strategy: sonata.admin.label.strategy.underscore}
+            
+    admin.volunteer_level_params:
+        class: AppBundle\Admin\VolunteerLevelParamsAdmin
+        arguments: [~, AppBundle\Entity\VolunteerLevelParams, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Volunteer Level Param, label_translator_strategy: sonata.admin.label.strategy.underscore}                                                                                                                                                            

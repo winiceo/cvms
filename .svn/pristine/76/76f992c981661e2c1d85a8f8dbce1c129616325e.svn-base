@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled 
+2ba3cc4fd580ae94ed0e5c679e20ecbb160a83f1 refs/remotes/origin/develop
+5ec4336dd730891f88c220cdc002d8dddea24b03 refs/remotes/origin/develop-deprecated
+50a5ec86e2e65a700c601cc31e25a9378407b735 refs/remotes/origin/master
+87ee12454fec8d8891ec5c9c057045b86763179c refs/remotes/origin/revert-304-utilisezlinux-patch-1
+0f3ae828864a89436b3dc8fcfbe06075668d820b refs/remotes/origin/revert-306-patch-1

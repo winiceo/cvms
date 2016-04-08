@@ -1,6 +1,0 @@
-services:
-   symfony.form.type.tree:
-       class: AppBundle\Form\Type\OrganizationSelectorType
-       arguments: [ "@property_accessor" ]
-       tags:
-           - { name: form.type, alias: cvms_organization_selector }           

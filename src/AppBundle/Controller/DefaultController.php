@@ -12,17 +12,21 @@ define("openid","oEq9xw5bj13HYkQ_X7Jiv3GebE9Y");
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/aa", name="homepage")
      */
     public function indexAction(Request $request)
     {
+        $cache=$this->get("wechat_cache");
+        $cache->save("asdf",122);
+        echo $cache->fetch("asdf");
+        var_dump($cache);
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ));
     }
     /**
-     * @Route("/index", name="homepage")
+     * @Route("/index")
      */
     public function homeAction(Request $request)
     {

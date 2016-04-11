@@ -98,20 +98,19 @@ swiftmailer:
     spool:     { type: memory }
 
 doctrine_cache:
-    aliases:
-        cache_apc: my_apc_cache
-
     providers:
-        my_apc_cache:
-            type: apc
-            namespace: my_apc_cache_ns
+        my_cache:
+            file_system:
+                    extension: "cache"
+                    directory: "%kernel.root_dir%/cache"
             aliases:
                 - wechat_cache
 
+
 leven_wechat:
-    app_id: "wx892d0dd1d47ce652"
-    app_secret: "11151426c98de6b4b8c1ab2c81a5767f"
-    token: "meet"
+    app_id: "wx9bcb0750e4533a53"
+    app_secret: "a80ef559116b438d548960d8d9761247"
+    token: "weiphp"
     cache_provider_id: wechat_cache
     user_class: AppBundle\Entity\WechatUser
     alias: wechat_sdk

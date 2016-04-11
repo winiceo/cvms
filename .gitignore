@@ -1,5 +1,6 @@
 /.svn/*
 /.settings/*
+/.idea/*
 /app/bootstrap.php.cache
 /app/cache/*
 !app/cache/.gitkeep
@@ -9,5 +10,5 @@
 /app/phpunit.xml
 /bin/
 /composer.phar
-/vendor/
+
 /web/bundles/
